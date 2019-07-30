@@ -16,7 +16,7 @@ ENV CADVISOR_VERSION=${CADVISOR_VERSION}
 COPY tmp/qemu-${QEMU_ARCH}-static /usr/bin/qemu-${QEMU_ARCH}-static
 
 #RUN apk update && apt-get install -y git dmsetup && apt-get clean
-RUN apk --no-cache add git dmsetup curl && \
+RUN apk --no-cache add git device-mapper curl && \
     rm -rf /var/cache/apk/*
 
 #RUN git clone --branch ${CADVISOR_VERSION} https://github.com/google/cadvisor.git /go/src/github.com/google/cadvisor
