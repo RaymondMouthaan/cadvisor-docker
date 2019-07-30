@@ -1,6 +1,6 @@
 # Builder
 ARG ARCH
-FROM ${ARCH}/golang as builder
+FROM ${ARCH}/golang:latest as builder
 
 # Define ARGs again to make them available after FROM
 ARG BUILD_DATE
