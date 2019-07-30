@@ -28,6 +28,8 @@ RUN make build
 FROM ${ARCH}/alpine:3.9
 MAINTAINER dengnan@google.com vmarmol@google.com vishnuk@google.com jimmidyson@gmail.com stclair@google.com
 
+ARG QEMU_ARCH
+
 # Basic build-time metadata as defined at http://label-schema.org
 LABEL org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.docker.dockerfile="Dockerfile" \
