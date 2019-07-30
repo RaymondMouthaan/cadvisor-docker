@@ -1,6 +1,6 @@
 # Builder
 ARG ARCH
-FROM ${ARCH}/golang:1.11-alpine  as builder
+FROM ${ARCH}/golang:buster  as builder
 
 # Define ARGs again to make them available after FROM
 ARG BUILD_DATE
@@ -15,9 +15,7 @@ ENV CADVISOR_VERSION=${CADVISOR_VERSION}
 
 COPY tmp/qemu-${QEMU_ARCH}-static /usr/bin/qemu-${QEMU_ARCH}-static
 
-#RUN apk update && apt-get install -y git dmsetup && apt-get clean
-RUN apk --no-cache add git device-mapper curl && \
-    rm -rf /var/cache/apk/*
+RUN apt-get update && apt-get install -y git dmsetup && apt-get clean
 
 #RUN git clone --branch ${CADVISOR_VERSION} https://github.com/google/cadvisor.git /go/src/github.com/google/cadvisor
 RUN mkdir -p /go/src/github.com/google/cadvisor
