@@ -1,6 +1,6 @@
 # Builder
 ARG ARCH
-FROM ${ARCH}/golang:buster  as builder
+FROM ${ARCH}/golang:buster as builder
 
 # Define ARGs again to make them available after FROM
 ARG BUILD_DATE
@@ -25,7 +25,8 @@ WORKDIR /go/src/github.com/google/cadvisor
 
 RUN make build
 
-FROM ${ARCH}/alpine:3.9
+#FROM ${ARCH}/alpine:3.9
+FROM ${ARCH}/debian:buster-slim
 MAINTAINER dengnan@google.com vmarmol@google.com vishnuk@google.com jimmidyson@gmail.com stclair@google.com
 
 ARG QEMU_ARCH
@@ -50,10 +51,10 @@ ENV CADVISOR_VERSION=${CADVISOR_VERSION}
 
 COPY tmp/qemu-${QEMU_ARCH}-static /usr/bin/qemu-${QEMU_ARCH}-static
 
-RUN apk --no-cache add libc6-compat device-mapper findutils zfs curl && \
-    apk --no-cache add thin-provisioning-tools --repository http://dl-3.alpinelinux.org/alpine/edge/main/ && \
-    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
-    rm -rf /var/cache/apk/*
+#RUN apk --no-cache add libc6-compat device-mapper findutils zfs curl && \
+#    apk --no-cache add thin-provisioning-tools --repository http://dl-3.alpinelinux.org/alpine/edge/main/ && \
+#    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
+#    rm -rf /var/cache/apk/*
 
 # Grab cadvisor from the staging directory.
 COPY --from=builder /go/src/github.com/google/cadvisor/cadvisor /usr/bin/cadvisor

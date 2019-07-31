@@ -13,9 +13,9 @@ env:
     - QEMU_VERSION=v4.0.0-5
 
   matrix:
-    - DOCKER_FILE=Dockerfile QEMU_ARCH=x86_64 OS=alpine ARCH=amd64
-    - DOCKER_FILE=Dockerfile QEMU_ARCH=arm OS=alpine ARCH=arm32v7
-    - DOCKER_FILE=Dockerfile QEMU_ARCH=aarch64 OS=alpine ARCH=arm64v8
+    - DOCKER_FILE=Dockerfile QEMU_ARCH=x86_64 OS=buster-slim ARCH=amd64
+    - DOCKER_FILE=Dockerfile QEMU_ARCH=arm OS=buster-slim ARCH=arm32v7
+    - DOCKER_FILE=Dockerfile QEMU_ARCH=aarch64 OS=buster-slim ARCH=arm64v8
 
 before_install:
   # Prepare Docker
