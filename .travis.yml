@@ -10,7 +10,7 @@ env:
   global:
     - CADVISOR_VERSION=v0.33.0
     - TARGET=raymondmm/cadvisor
-    - QEMU_VERSION=v4.0.0-5
+    - QEMU_VERSION=v4.0.0
 
   matrix:
     - DOCKER_FILE=Dockerfile QEMU_ARCH=x86_64 OS=buster-slim ARCH=amd64
