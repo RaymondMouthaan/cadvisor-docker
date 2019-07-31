@@ -56,6 +56,8 @@ COPY tmp/qemu-${QEMU_ARCH}-static /usr/bin/qemu-${QEMU_ARCH}-static
 #    echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
 #    rm -rf /var/cache/apk/*
 
+RUN apt-get update && apt-get install -y curl  && apt-get clean
+
 # Grab cadvisor from the staging directory.
 COPY --from=builder /go/src/github.com/google/cadvisor/cadvisor /usr/bin/cadvisor
 
