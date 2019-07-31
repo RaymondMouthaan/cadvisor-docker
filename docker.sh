@@ -175,12 +175,12 @@ docker_manifest_list_testing() {
 
 docker_manifest_list_version_os_arch() {
   # Manifest Create buster-slim-amd64
-  echo "DOCKER MANIFEST: Create and Push docker manifest list - ${TARGET}:${BUILD_VERSION}-linux-amd64."
-  docker manifest create ${TARGET}:${BUILD_VERSION}-linux-amd64 \
+  echo "DOCKER MANIFEST: Create and Push docker manifest list - ${TARGET}:${BUILD_VERSION}-buster-slim-amd64."
+  docker manifest create ${TARGET}:${BUILD_VERSION}-buster-slim-amd64 \
     ${TARGET}:${BUILD_VERSION}-buster-slim-amd64
 
   # Manifest Push buster-slim-amd64
-  docker manifest push ${TARGET}:${BUILD_VERSION}-linux-amd64
+  docker manifest push ${TARGET}:${BUILD_VERSION}-buster-slim-amd64
 
   # Manifest Create buster-slim-arm32v7
   echo "DOCKER MANIFEST: Create and Push docker manifest list - ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7."
@@ -194,8 +194,8 @@ docker_manifest_list_version_os_arch() {
   docker manifest push ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7
 
   # Manifest Create buster-slim-arm64v8
-  echo "DOCKER MANIFEST: Create and Push docker manifest list - ${TARGET}:${BUILD_VERSION}-linux-arm64v8."
-  docker manifest create ${TARGET}:${BUILD_VERSION}-linux-arm64v8 \
+  echo "DOCKER MANIFEST: Create and Push docker manifest list - ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8."
+  docker manifest create ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 \
     ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8
 
   # Manifest Annotate buster-slim-arm64v8
