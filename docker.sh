@@ -119,7 +119,7 @@ docker_manifest_list_version() {
 
   # Manifest Annotate BUILD_VERSION
   docker manifest annotate ${TARGET}:${BUILD_VERSION} ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7 --os=linux --arch=arm --variant=v7
-  docker manifest annotate ${TARGET}:${BUILD_VERSION} ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64v8 --variant=v8
+  docker manifest annotate ${TARGET}:${BUILD_VERSION} ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64 --variant=v8
 
   # Manifest Push BUILD_VERSION
   docker manifest push ${TARGET}:${BUILD_VERSION}
@@ -135,7 +135,7 @@ docker_manifest_list_latest() {
 
   # Manifest Annotate BUILD_VERSION
   docker manifest annotate ${TARGET}:latest ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7 --os=linux --arch=arm --variant=v7
-  docker manifest annotate ${TARGET}:latest ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64v8 --variant=v8
+  docker manifest annotate ${TARGET}:latest ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64 --variant=v8
 
   # Manifest Push BUILD_VERSION
   docker manifest push ${TARGET}:latest
@@ -151,7 +151,7 @@ docker_manifest_list_beta() {
 
   # Manifest Annotate BUILD_VERSION
   docker manifest annotate ${TARGET}:beta ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7 --os=linux --arch=arm --variant=v7
-  docker manifest annotate ${TARGET}:beta ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64v8 --variant=v8
+  docker manifest annotate ${TARGET}:beta ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64 --variant=v8
 
   # Manifest Push BUILD_VERSION
   docker manifest push ${TARGET}:beta
@@ -167,7 +167,7 @@ docker_manifest_list_testing() {
 
   # Manifest Annotate BUILD_VERSION
   docker manifest annotate ${TARGET}:testing ${TARGET}:${BUILD_VERSION}-buster-slim-arm32v7 --os=linux --arch=arm --variant=v7
-  docker manifest annotate ${TARGET}:testing ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64v8 --variant=v8
+  docker manifest annotate ${TARGET}:testing ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64 --variant=v8
 
   # Manifest Push BUILD_VERSION
   docker manifest push ${TARGET}:testing
@@ -199,7 +199,7 @@ docker_manifest_list_version_os_arch() {
     ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8
 
   # Manifest Annotate buster-slim-arm64v8
-  docker manifest annotate ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64v8 --variant=v8
+  docker manifest annotate ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8 --os=linux --arch=arm64 --variant=v8
 
   # Manifest Push buster-slim-arm64v8
   docker manifest push ${TARGET}:${BUILD_VERSION}-buster-slim-arm64v8
